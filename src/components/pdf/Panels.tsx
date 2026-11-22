@@ -96,13 +96,13 @@ function FileList({ entries, onRemove, pageCounts }: { entries: FileEntry[]; onR
   return (
     <ul className="space-y-2">
       {entries.map((e) => (
-        <li key={e.id} className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white px-4 py-2">
+        <li key={e.id} className="flex items-center gap-3 rounded-xl border border-line bg-surface px-4 py-2">
           {e.previewUrl && (
             <img src={e.previewUrl} alt="" className="h-12 w-12 shrink-0 rounded-lg object-cover" />
           )}
           <div className="min-w-0 flex-1">
-            <p className="truncate text-sm text-gray-700">{e.file.name}</p>
-            <p className="text-xs text-gray-500">
+            <p className="truncate text-sm text-ink-soft">{e.file.name}</p>
+            <p className="text-xs text-muted">
               {formatBytes(e.file.size)}
               {pageCounts?.[e.id] !== undefined && ` • ${strings.pdfPageCountShort(pageCounts[e.id])}`}
             </p>
@@ -301,10 +301,10 @@ export function PdfToImagesPanel() {
         </div>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
           {results.map((r) => (
-            <figure key={r.page} className="overflow-hidden rounded-xl border border-gray-200 bg-white">
+            <figure key={r.page} className="overflow-hidden rounded-xl border border-line bg-surface">
               <img src={r.url} alt={r.name} className="h-32 w-full object-cover" />
               <figcaption className="flex items-center justify-between gap-1 px-2 py-1.5">
-                <span className="truncate text-xs text-gray-600">{strings.pdfPageImage(r.page)}</span>
+                <span className="truncate text-xs text-muted">{strings.pdfPageImage(r.page)}</span>
                 <button type="button" onClick={() => downloadOne(r)} className="shrink-0 rounded-lg bg-teal-50 px-2 py-0.5 text-xs font-medium text-teal-700 hover:bg-teal-100">
                   {strings.download}
                 </button>
@@ -322,10 +322,10 @@ export function PdfToImagesPanel() {
       {error && <p className="rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">{error}</p>}
       {file && doc && (
         <div className="space-y-3">
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-muted">
             {file.name} — {strings.pdfPageCount(doc.numPages)}
           </p>
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-ink-soft">
             {strings.pdfPagesLabel} (اختياري)
             <input
               type="text"
@@ -333,18 +333,18 @@ export function PdfToImagesPanel() {
               onChange={(e) => setRanges(e.target.value)}
               placeholder="1-3,5 — فارغ = الكل"
               dir="ltr"
-              className="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5 text-left"
+              className="mt-1 w-full rounded-xl border border-line-strong px-4 py-2.5 text-left"
             />
           </label>
           <div className="flex items-center gap-3">
-            <span className="text-sm font-medium text-gray-700">{strings.format}</span>
-            <div className="flex rounded-lg border border-gray-300 p-0.5">
+            <span className="text-sm font-medium text-ink-soft">{strings.format}</span>
+            <div className="flex rounded-lg border border-line-strong p-0.5">
               {(['image/jpeg', 'image/png'] as OutputFormat[]).map((f) => (
                 <button
                   key={f}
                   type="button"
                   onClick={() => setFormat(f)}
-                  className={`rounded-md px-3 py-1 text-sm ${format === f ? 'bg-teal-600 text-white' : 'text-gray-600 hover:bg-gray-100'}`}
+                  className={`rounded-md px-3 py-1 text-sm ${format === f ? 'bg-teal-600 text-white' : 'text-muted hover:bg-surface-3'}`}
                 >
                   {f === 'image/png' ? 'PNG' : 'JPG'}
                 </button>
@@ -406,9 +406,9 @@ export function SplitPanel() {
       {file && (
         <div className="space-y-3">
           {pageCounts[entries[0].id] !== undefined && (
-            <p className="text-sm text-gray-600">{strings.pdfPageCount(pageCounts[entries[0].id])}</p>
+            <p className="text-sm text-muted">{strings.pdfPageCount(pageCounts[entries[0].id])}</p>
           )}
-          <label className="block text-sm font-medium text-gray-700">
+          <label className="block text-sm font-medium text-ink-soft">
             {strings.pdfPagesLabel}
             <input
               type="text"
@@ -416,7 +416,7 @@ export function SplitPanel() {
               onChange={(e) => setRanges(e.target.value)}
               placeholder="1-3,5"
               dir="ltr"
-              className="mt-1 w-full rounded-xl border border-gray-300 px-4 py-2.5 text-left"
+              className="mt-1 w-full rounded-xl border border-line-strong px-4 py-2.5 text-left"
             />
           </label>
           <ActionButton label={strings.pdfExtract} disabled={busy || !ranges.trim()} busy={busy} onClick={run} />

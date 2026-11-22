@@ -7,7 +7,7 @@ import PdfToolPage from './pages/PdfToolPage'
 
 export default function App() {
   return (
-    <div className="flex min-h-screen flex-col bg-slate-50 font-sans text-slate-900 antialiased">
+    <div className="flex min-h-screen flex-col bg-surface-2 font-sans text-ink antialiased">
       <Navbar />
       <div className="flex-1">
         <Routes>

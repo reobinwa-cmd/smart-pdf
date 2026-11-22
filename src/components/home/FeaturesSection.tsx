@@ -33,24 +33,24 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="bg-white py-20 lg:py-28">
+    <section className="bg-surface py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <span className="text-sm font-bold uppercase tracking-wider text-brand-600">{s.featuresBadge}</span>
           <h2 className="mt-3 mb-4 font-display text-3xl font-bold lg:text-4xl">{s.featuresTitle}</h2>
-          <p className="text-lg text-slate-600">{s.featuresSubtitle}</p>
+          <p className="text-lg text-muted">{s.featuresSubtitle}</p>
         </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((f) => (
-            <div key={f.title} className="card-hover rounded-2xl border border-slate-200 bg-slate-50 p-6">
+            <div key={f.title} className="card-hover rounded-2xl border border-line bg-surface-2 p-6">
               <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${f.gradient} shadow-lg ${f.shadow}`}>
                 <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d={f.icon} />
                 </svg>
               </div>
               <h3 className="mb-2 font-bold text-lg">{f.title}</h3>
-              <p className="text-sm leading-relaxed text-slate-600">{f.desc}</p>
+              <p className="text-sm leading-relaxed text-muted">{f.desc}</p>
             </div>
           ))}
         </div>

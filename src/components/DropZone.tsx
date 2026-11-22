@@ -30,11 +30,11 @@ export default function DropZone({ onFiles, accept = 'image/*', multiple = true,
       onDragLeave={() => setDragging(false)}
       onDrop={handleDrop}
       className={`w-full cursor-pointer rounded-2xl border-2 border-dashed px-6 py-10 text-center transition-colors ${
-        dragging ? 'border-teal-500 bg-teal-50' : 'border-gray-300 bg-white hover:border-teal-400'
+        dragging ? 'border-teal-500 bg-teal-50' : 'border-line-strong bg-surface hover:border-teal-400'
       }`}
     >
-      <p className="text-lg font-semibold text-gray-800">{title ?? strings.dropTitle}</p>
-      <p className="mt-2 text-sm text-gray-500">{hint ?? strings.dropHint}</p>
+      <p className="text-lg font-semibold text-ink-soft">{title ?? strings.dropTitle}</p>
+      <p className="mt-2 text-sm text-muted">{hint ?? strings.dropHint}</p>
       <input
         ref={inputRef}
         type="file"

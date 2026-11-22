@@ -61,34 +61,34 @@ export default function HomePage() {
       <HeroSection />
 
       {/* TOOLS */}
-      <section id="tools" className="bg-white py-20 lg:py-24">
+      <section id="tools" className="bg-surface py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto mb-14 max-w-2xl text-center">
             <span className="text-sm font-bold uppercase tracking-wider text-brand-600">Tools</span>
             <h2 className="mt-3 mb-4 font-display text-3xl font-bold lg:text-4xl">{t.toolsTitle}</h2>
-            <p className="text-lg text-slate-600">{t.toolsSubtitle}</p>
+            <p className="text-lg text-muted">{t.toolsSubtitle}</p>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {tools.map((tool) =>
               tool.soon ? (
-                <div key={tool.title[lang]} className="relative rounded-2xl border border-slate-200 bg-slate-50 p-6 opacity-70">
-                  <div className="absolute left-4 top-4 rounded-full bg-slate-200 px-2 py-1 text-[10px] font-bold text-slate-600">
+                <div key={tool.title[lang]} className="relative rounded-2xl border border-line bg-surface-2 p-6 opacity-70">
+                  <div className="absolute left-4 top-4 rounded-full bg-surface-3 px-2 py-1 text-[10px] font-bold text-muted">
                     {t.comingSoon}
                   </div>
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-slate-200">
-                    <svg className="h-6 w-6 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-surface-3">
+                    <svg className="h-6 w-6 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <h3 className="mb-2 font-bold text-lg text-slate-700">{tool.title[lang]}</h3>
-                  <p className="text-sm leading-relaxed text-slate-500">{tool.desc[lang]}</p>
+                  <h3 className="mb-2 font-bold text-lg text-ink-soft">{tool.title[lang]}</h3>
+                  <p className="text-sm leading-relaxed text-muted">{tool.desc[lang]}</p>
                 </div>
               ) : (
                 <Link
                   key={tool.title[lang]}
                   to={tool.to}
-                  className="group relative rounded-2xl border border-slate-200 bg-white p-6 card-hover hover:border-brand-300"
+                  className="group relative rounded-2xl border border-line bg-surface p-6 card-hover hover:border-brand-300"
                 >
                   <div className={`absolute left-4 top-4 rounded-full bg-emerald-100 px-2 py-1 text-[10px] font-bold text-emerald-700`}>
                     {t.available}
@@ -99,10 +99,10 @@ export default function HomePage() {
                     </svg>
                   </div>
                   <h3 className="mb-2 font-bold text-lg transition group-hover:text-brand-600">{tool.title[lang]}</h3>
-                  <p className="mb-3 text-sm leading-relaxed text-slate-600">{tool.desc[lang]}</p>
-                  <div className="flex items-center gap-1.5 text-xs text-slate-400">
+                  <p className="mb-3 text-sm leading-relaxed text-muted">{tool.desc[lang]}</p>
+                  <div className="flex items-center gap-1.5 text-xs text-faint">
                     {tool.tags.map((tag) => (
-                      <span key={tag} className="rounded bg-slate-100 px-2 py-0.5">{tag}</span>
+                      <span key={tag} className="rounded bg-surface-3 px-2 py-0.5">{tag}</span>
                     ))}
                   </div>
                 </Link>

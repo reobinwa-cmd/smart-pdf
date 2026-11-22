@@ -8,12 +8,12 @@ const steps = [
 
 export default function HowItWorksSection() {
   return (
-    <section className="bg-slate-50 py-20 lg:py-28">
+    <section className="bg-surface-2 py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <span className="text-sm font-bold uppercase tracking-wider text-brand-600">{s.howBadge}</span>
           <h2 className="mt-3 mb-4 font-display text-3xl font-bold lg:text-4xl">{s.howTitle}</h2>
-          <p className="text-lg text-slate-600">{s.howSubtitle}</p>
+          <p className="text-lg text-muted">{s.howSubtitle}</p>
         </div>
 
         <div className="relative grid gap-8 md:grid-cols-3">
@@ -24,7 +24,7 @@ export default function HowItWorksSection() {
                 {step.n}
               </div>
               <h3 className="mb-2 font-bold text-lg">{step.title}</h3>
-              <p className="text-sm leading-relaxed text-slate-600">{step.desc}</p>
+              <p className="text-sm leading-relaxed text-muted">{step.desc}</p>
             </div>
           ))}
         </div>

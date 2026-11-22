@@ -18,18 +18,18 @@ export default function PdfToolPage() {
     <main className="px-4 py-10">
       <div className="mx-auto max-w-3xl space-y-6">
         <header className="text-center">
-          <h1 className="text-3xl font-bold text-gray-800">{strings.toolPdfTitle}</h1>
-          <p className="mt-2 text-gray-600">{strings.toolPdfDesc}</p>
+          <h1 className="text-3xl font-bold text-ink-soft">{strings.toolPdfTitle}</h1>
+          <p className="mt-2 text-muted">{strings.toolPdfDesc}</p>
         </header>
 
-        <div className="flex rounded-xl border border-gray-300 bg-white p-1">
+        <div className="flex rounded-xl border border-line-strong bg-surface p-1">
           {TABS.map((t) => (
             <button
               key={t.id}
               type="button"
               onClick={() => setTab(t.id)}
               className={`flex-1 rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
-                tab === t.id ? 'bg-teal-600 text-white' : 'text-gray-600 hover:bg-gray-100'
+                tab === t.id ? 'bg-teal-600 text-white' : 'text-muted hover:bg-surface-3'
               }`}
             >
               {t.label}

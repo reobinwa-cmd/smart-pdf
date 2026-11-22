@@ -97,8 +97,8 @@ export default function ImagesToolPage() {
     <main className="px-4 py-10">
       <div className="mx-auto max-w-4xl space-y-8">
         <header className="text-center">
-          <h1 className="text-3xl font-bold text-gray-800">{strings.toolImagesTitle}</h1>
-          <p className="mt-2 text-gray-600">{strings.appSubtitle}</p>
+          <h1 className="text-3xl font-bold text-ink-soft">{strings.toolImagesTitle}</h1>
+          <p className="mt-2 text-muted">{strings.appSubtitle}</p>
         </header>
 
         {!hasResults ? (

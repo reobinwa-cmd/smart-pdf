@@ -14,7 +14,7 @@ export default function ResultsPanel({ items, format, onAddMore }: Props) {
   const [downloading, setDownloading] = useState(false)
 
   if (results.length === 0) {
-    return <p className="py-8 text-center text-sm text-gray-400">{strings.emptyResults}</p>
+    return <p className="py-8 text-center text-sm text-faint">{strings.emptyResults}</p>
   }
 
   const downloadOne = (item: ImageItem) => {
@@ -53,7 +53,7 @@ export default function ResultsPanel({ items, format, onAddMore }: Props) {
         >
           {strings.addMore}
         </button>
-        <span className="text-sm text-gray-500">
+        <span className="text-sm text-muted">
           {results.reduce((acc, i) => acc + (i.resultSize ?? 0), 0) > 0 &&
             formatBytes(results.reduce((acc, i) => acc + (i.resultSize ?? 0), 0))}{' '}
           {ext}
@@ -62,10 +62,10 @@ export default function ResultsPanel({ items, format, onAddMore }: Props) {
 
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
         {results.map((item) => (
-          <figure key={item.id} className="overflow-hidden rounded-xl border border-gray-200 bg-white">
+          <figure key={item.id} className="overflow-hidden rounded-xl border border-line bg-surface">
             <img src={item.resultUrl} alt={item.resultName} className="h-28 w-full object-cover" />
             <figcaption className="flex items-center justify-between gap-1 px-2 py-1.5">
-              <span className="truncate text-xs text-gray-600" title={item.resultName}>
+              <span className="truncate text-xs text-muted" title={item.resultName}>
                 {item.resultName}
               </span>
               <button

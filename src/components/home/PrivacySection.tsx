@@ -27,7 +27,7 @@ export default function PrivacySection() {
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
         <div>
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold backdrop-blur">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-surface/10 px-3 py-1.5 text-xs font-semibold backdrop-blur">
             <svg className="h-4 w-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
             </svg>
@@ -50,7 +50,7 @@ export default function PrivacySection() {
                 </div>
                 <div>
                   <p className="mb-1 font-semibold">{p.title}</p>
-                  <p className="text-sm text-slate-400">{p.desc}</p>
+                  <p className="text-sm text-faint">{p.desc}</p>
                 </div>
               </div>
             ))}
@@ -58,7 +58,7 @@ export default function PrivacySection() {
         </div>
 
         <div className="relative">
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
+          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-surface/5 p-8 backdrop-blur-xl">
             <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-emerald-400/20 blur-2xl" />
             <div className="relative">
               <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-400 to-cyan-500 shadow-2xl shadow-emerald-500/30">
@@ -67,13 +67,13 @@ export default function PrivacySection() {
                 </svg>
               </div>
               <div className="mb-6 text-center">
-                <p className="mb-1 text-sm text-slate-400">{s.privacyLevel}</p>
+                <p className="mb-1 text-sm text-faint">{s.privacyLevel}</p>
                 <p className="text-3xl font-bold">{s.privacyLevelValue}</p>
               </div>
               <div className="space-y-3">
                 {rows.map((r) => (
                   <div key={r.label} className="flex items-center justify-between text-sm">
-                    <span className="text-slate-400">{r.label}</span>
+                    <span className="text-faint">{r.label}</span>
                     <span className="font-semibold text-emerald-400">{r.value}</span>
                   </div>
                 ))}

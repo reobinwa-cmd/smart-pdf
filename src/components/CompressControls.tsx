@@ -17,9 +17,9 @@ const FORMATS: { value: OutputFormat; label: string }[] = [
 
 export default function CompressControls({ quality, format, onQuality, onFormat, disabled }: Props) {
   return (
-    <div className="flex flex-col gap-4 rounded-2xl bg-white p-5 shadow-sm sm:flex-row sm:items-center sm:gap-8">
+    <div className="flex flex-col gap-4 rounded-2xl bg-surface p-5 shadow-sm sm:flex-row sm:items-center sm:gap-8">
       <label className="flex flex-1 items-center gap-3">
-        <span className="w-16 shrink-0 text-sm font-medium text-gray-700">
+        <span className="w-16 shrink-0 text-sm font-medium text-ink-soft">
           {strings.quality}: <span className="text-teal-700">{quality}%</span>
         </span>
         <input
@@ -33,8 +33,8 @@ export default function CompressControls({ quality, format, onQuality, onFormat,
         />
       </label>
       <div className="flex items-center gap-3">
-        <span className="text-sm font-medium text-gray-700">{strings.format}</span>
-        <div className="flex rounded-lg border border-gray-300 p-0.5">
+        <span className="text-sm font-medium text-ink-soft">{strings.format}</span>
+        <div className="flex rounded-lg border border-line-strong p-0.5">
           {FORMATS.map((f) => (
             <button
               key={f.value}
@@ -42,7 +42,7 @@ export default function CompressControls({ quality, format, onQuality, onFormat,
               disabled={disabled}
               onClick={() => onFormat(f.value)}
               className={`rounded-md px-3 py-1 text-sm transition-colors ${
-                format === f.value ? 'bg-teal-600 text-white' : 'text-gray-600 hover:bg-gray-100'
+                format === f.value ? 'bg-teal-600 text-white' : 'text-muted hover:bg-surface-3'
               }`}
             >
               {f.label}
