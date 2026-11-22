@@ -1,5 +1,11 @@
 import { Link } from 'react-router-dom'
 import { useLang, type Lang } from '../lib/lang'
+import PrivacySection from '../components/home/PrivacySection'
+import FeaturesSection from '../components/home/FeaturesSection'
+import HowItWorksSection from '../components/home/HowItWorksSection'
+import FaqSection from '../components/home/FaqSection'
+import CtaSection from '../components/home/CtaSection'
+import HeroSection from '../components/home/HeroSection'
 
 interface ToolCard {
   to: string
@@ -52,45 +58,7 @@ export default function HomePage() {
 
   return (
     <main>
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-grid">
-        <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-brand-400/20 blur-3xl" />
-        <div className="absolute top-40 -left-32 h-96 w-96 rounded-full bg-purple-400/20 blur-3xl" />
-        <div className="absolute -bottom-32 right-1/3 h-96 w-96 rounded-full bg-cyan-300/20 blur-3xl" />
-
-        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-          <div className="text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white px-3 py-1.5 text-xs font-semibold text-brand-700 shadow-sm">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-500" />
-              {t.homeBadge}
-            </div>
-            <h1 className="mb-6 font-display text-4xl font-bold leading-[1.15] tracking-tight sm:text-5xl lg:text-6xl">
-              {t.homeTitle1}{' '}
-              <span className="text-gradient">{t.homeTitle2}</span>
-              <br />
-              {t.homeTitle3}
-            </h1>
-            <p className="mx-auto mb-8 max-w-xl text-lg text-slate-600 lg:text-xl">{t.homeSubtitle}</p>
-            <div className="flex flex-col justify-center gap-3 sm:flex-row">
-              <Link
-                to="/tools/images"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-l from-brand-600 to-purple-600 px-7 py-4 font-bold text-white transition-all hover:-translate-y-0.5 hover:shadow-xl hover:shadow-brand-500/30"
-              >
-                {t.homeCta}
-                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                </svg>
-              </Link>
-              <a
-                href="#tools"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-7 py-4 font-bold text-slate-800 transition hover:border-slate-300 hover:bg-slate-50"
-              >
-                {t.homeCta2}
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* TOOLS */}
       <section id="tools" className="bg-white py-20 lg:py-24">
@@ -143,6 +111,12 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <PrivacySection />
+      <FeaturesSection />
+      <HowItWorksSection />
+      <FaqSection />
+      <CtaSection />
     </main>
   )
 }
