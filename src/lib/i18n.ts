@@ -2,7 +2,7 @@ export const strings = {
   appTitle: 'أدوات دارجة',
   appSubtitle: 'معالجة الصور محلياً في متصفحك — خصوصية كاملة، بدون رفع لأي خادم',
   dropTitle: 'اسحب الصور هنا أو اضغط للاختيار',
-  dropHint: 'JPG, PNG, WebP — HEIC قريباً',
+  dropHint: 'JPG, PNG, WebP, HEIC',
   quality: 'الجودة',
   format: 'صيغة الإخراج',
   formatJpeg: 'JPG',

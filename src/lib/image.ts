@@ -8,9 +8,17 @@ const FORMAT_EXT: Record<OutputFormat, string> = {
   'image/webp': 'webp',
 }
 
+export function isHeic(file: File): boolean {
+  return (
+    file.type === 'image/heic' ||
+    file.type === 'image/heif' ||
+    /\.(heic|heif)$/i.test(file.name)
+  )
+}
+
 export function isSupportedImage(file: File): boolean {
-  if (file.type.startsWith('image/')) return file.type !== 'image/svg+xml' && !file.name.toLowerCase().endsWith('.heic')
-  return false
+  if (isHeic(file)) return true
+  return file.type.startsWith('image/') && file.type !== 'image/svg+xml'
 }
 
 export function baseName(filename: string): string {
@@ -23,7 +31,11 @@ export function outputName(filename: string, format: OutputFormat): string {
 }
 
 async function loadBitmap(file: File): Promise<ImageBitmap> {
-  return createImageBitmap(file)
+  if (!isHeic(file)) return createImageBitmap(file)
+  const { default: heic2any } = await import('heic2any')
+  const converted = await heic2any({ blob: file, toType: 'image/jpeg', quality: 0.92 })
+  const blob = Array.isArray(converted) ? converted[0] : converted
+  return createImageBitmap(blob)
 }
 
 /**

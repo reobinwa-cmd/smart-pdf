@@ -1,5 +1,5 @@
 import type { ImageItem } from '../types'
-import { formatBytes } from '../lib/image'
+import { formatBytes, isHeic } from '../lib/image'
 import { strings } from '../lib/i18n'
 
 interface Props {
@@ -13,7 +13,13 @@ export default function ImagePreview({ items, onRemove }: Props) {
     <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
       {items.map((item) => (
         <figure key={item.id} className="relative overflow-hidden rounded-xl border border-gray-200 bg-white">
-          <img src={item.previewUrl} alt={item.file.name} className="h-28 w-full object-cover" />
+          {isHeic(item.file) ? (
+            <div className="flex h-28 w-full items-center justify-center bg-teal-50 text-2xl" title="HEIC">
+              📷
+            </div>
+          ) : (
+            <img src={item.previewUrl} alt={item.file.name} className="h-28 w-full object-cover" />
+          )}
           <figcaption className="truncate px-2 py-1 text-xs text-gray-600" title={item.file.name}>
             {item.file.name}
           </figcaption>
