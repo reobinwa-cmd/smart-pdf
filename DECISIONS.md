@@ -12,3 +12,6 @@
 | 6 | 2026-11-22 | أيقونات PWA PNG (192/512) مُولّدة بسكربت Node مؤقت (دائرة بيضاء على خلفية teal) | لا توجد أداة تصميم أيقونات مثبتة؛ شكل بسيط قابل للاستبدال لاحقاً | vite-plugin-pwa generator، مكتبات صور خارجية |
 | 7 | 2026-11-22 | النشر عبر GitHub Pages + GitHub Actions (`actions/deploy-pages`) | استضافة معتمدة في ROADMAP، CI/CD تلقائي عند كل push على `main`، HTTPS مجاني | Netlify/Vercel (تحتاج ربط حساب خارجي)، gh-pages branch يدوي (لا تحديث تلقائي) |
 | 8 | 2026-11-22 | `base: '/smart-pdf/'` في Vite + `homepage` في package.json + manifest `start_url`/`scope` بنفس المسار | GitHub Pages يستضيف المشروع على مسار فرعي `username.github.io/smart-pdf/` | دومين مخصص (غير متوفر حالياً) |
+| 9 | 2026-11-22 | ضغط/تحويل الصور عبر Canvas API (`createImageBitmap` + `toBlob`) بدون أي مكتبة | صفر تبعيات، معالجة محلية كاملة، جودة JPEG/WebP قابلة للضبط | heic2any (مؤجل لـ HEIC فقط)، sharp.js (خادمي، خارج النطاق) |
+| 10 | 2026-11-22 | `base` شرطي: `/smart-pdf/` عند build فقط، `/` في dev | تجربة dev محلية طبيعية على `localhost:5173` بدون مسار فرعي | base ثابت دائماً (يكسر DX المحلي) |
+| 11 | 2026-11-22 | HEIC مؤجل لخطوة ثانية من المرحلة 1 | heic2any (~50KB) هو المكتبة الوحيدة المطلوبة للدعم؛ باقي المتطلبات تعمل بدون تبعيات | إضافة heic2any منذ البداية (حجم زائد قبل التحقق) |

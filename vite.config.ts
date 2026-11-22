@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
-export default defineConfig({
-  base: '/smart-pdf/',
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? '/smart-pdf/' : '/',
   plugins: [react(), tailwindcss()],
-})
+}))
