@@ -6,6 +6,7 @@ export interface ChromeStrings {
   navHome: string
   navImages: string
   navPdf: string
+  navOcr: string
   install: string
   menu: string
   homeBadge: string
@@ -32,6 +33,7 @@ const chrome: Record<Lang, ChromeStrings> = {
     navHome: 'الرئيسية',
     navImages: 'الصور',
     navPdf: 'PDF',
+    navOcr: 'OCR',
     install: 'تثبيت التطبيق',
     menu: 'القائمة',
     homeBadge: 'الإصدار التجريبي الأول متاح الآن',
@@ -56,6 +58,7 @@ const chrome: Record<Lang, ChromeStrings> = {
     navHome: 'Accueil',
     navImages: 'Images',
     navPdf: 'PDF',
+    navOcr: 'OCR',
     install: 'Installer l’app',
     menu: 'Menu',
     homeBadge: 'Première version bêta disponible',
@@ -80,6 +83,7 @@ const chrome: Record<Lang, ChromeStrings> = {
     navHome: 'Home',
     navImages: 'Images',
     navPdf: 'PDF',
+    navOcr: 'OCR',
     install: 'Install App',
     menu: 'Menu',
     homeBadge: 'First beta version available now',

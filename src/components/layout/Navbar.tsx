@@ -74,6 +74,7 @@ export default function Navbar() {
           <div className="hidden items-center gap-8 lg:flex">
             <NavLink to="/tools/images" className={linkCls}>{t.navImages}</NavLink>
             <NavLink to="/tools/pdf" className={linkCls}>{t.navPdf}</NavLink>
+            <NavLink to="/tools/ocr" className={linkCls}>{t.navOcr}</NavLink>
           </div>
 
           <div className="flex items-center gap-2">
@@ -116,6 +117,9 @@ export default function Navbar() {
             </NavLink>
             <NavLink to="/tools/pdf" onClick={() => setOpen(false)} className="block rounded-lg px-3 py-2 font-medium text-ink-soft hover:bg-surface-2">
               {t.navPdf}
+            </NavLink>
+            <NavLink to="/tools/ocr" onClick={() => setOpen(false)} className="block rounded-lg px-3 py-2 font-medium text-ink-soft hover:bg-surface-2">
+              {t.navOcr}
             </NavLink>
             <div className="mt-2 flex justify-center border-t border-line pt-3">
               <LangSwitcher />

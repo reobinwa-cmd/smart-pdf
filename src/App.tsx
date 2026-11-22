@@ -4,6 +4,7 @@ import Footer from './components/layout/Footer'
 import HomePage from './pages/HomePage'
 import ImagesToolPage from './pages/ImagesToolPage'
 import PdfToolPage from './pages/PdfToolPage'
+import OcrToolPage from './pages/OcrToolPage'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/tools/images" element={<ImagesToolPage />} />
           <Route path="/tools/pdf" element={<PdfToolPage />} />
+          <Route path="/tools/ocr" element={<OcrToolPage />} />
         </Routes>
       </div>
       <Footer />
