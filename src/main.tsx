@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { HashRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
+import { LangProvider } from './lib/lang'
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -12,8 +13,10 @@ if ('serviceWorker' in navigator) {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <HashRouter>
-      <App />
-    </HashRouter>
+    <LangProvider>
+      <HashRouter>
+        <App />
+      </HashRouter>
+    </LangProvider>
   </StrictMode>,
 )
