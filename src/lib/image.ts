@@ -30,12 +30,16 @@ export function outputName(filename: string, format: OutputFormat): string {
   return `${baseName(filename)}.${FORMAT_EXT[format]}`
 }
 
-async function loadBitmap(file: File): Promise<ImageBitmap> {
-  if (!isHeic(file)) return createImageBitmap(file)
+/** Returns a browser-decodable Blob (HEIC → JPEG via lazy heic2any). */
+export async function toDecodableBlob(file: File): Promise<Blob> {
+  if (!isHeic(file)) return file
   const { default: heic2any } = await import('heic2any')
   const converted = await heic2any({ blob: file, toType: 'image/jpeg', quality: 0.92 })
-  const blob = Array.isArray(converted) ? converted[0] : converted
-  return createImageBitmap(blob)
+  return Array.isArray(converted) ? converted[0] : converted
+}
+
+async function loadBitmap(file: File): Promise<ImageBitmap> {
+  return createImageBitmap(await toDecodableBlob(file))
 }
 
 /**
